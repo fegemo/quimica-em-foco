@@ -1,0 +1,8 @@
+<nav>
+  <ul class="hex-grid">
+    <li class="hex" *ngFor="let page of (pages | async)">
+      <app-page-thumb [data]="page"></app-page-thumb>
+      {{ page.name.pt }}
+    </li>
+  </ul>
+</nav>

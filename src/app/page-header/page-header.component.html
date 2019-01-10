@@ -1,0 +1,8 @@
+<header>
+  <h1>Química em Foco</h1>
+  <p>Aprendendo Química de forma dinâmica e interativa</p>
+</header>
+<div *ngIf="notInHome">
+  <app-page-list></app-page-list>
+  <button (click)="navigateHome()">Voltar</button>
+</div>

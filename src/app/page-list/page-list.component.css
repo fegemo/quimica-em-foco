@@ -1,0 +1,94 @@
+/* Credits to https://codepen.io/adamriguez/pen/eRaXeq?editors=1100 */
+
+.hex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+  font-family: sans-serif;
+  list-style-type: none;
+}
+
+.hex {
+  position: relative;
+  visibility: hidden;
+  outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
+  transition: all 0.5s;
+  backface-visibility: hidden;
+  will-change: transform;
+  transition: all 0.5s;
+}
+.hex::after {
+  content: "";
+  display: block;
+  padding-bottom: 86.602%; /* =  100 / tan(60) * 1.5 */
+}
+
+/*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
+@media (min-width: 1201px) {
+    /* <- 5-4  hexagons per row */
+    .hex-grid {
+      padding-bottom: 4.4%;
+    }
+    .hex {
+      width: 20%; /* = 100 / 5 */
+    }
+    .hex:nth-child(9n + 6) {
+      /* first hexagon of even rows */
+      margin-left: 10%; /* = width of .hex / 2  to indent even rows */
+    }
+  }
+  
+  @media (max-width: 1200px) and (min-width: 901px) {
+    /* <- 4-3  hexagons per row */
+    .hex-grid {
+      padding-bottom: 5.5%;
+      font-size: 13px;
+    }
+    .hex {
+      width: 25%; /* = 100 / 4 */
+    }
+    .hex:nth-child(7n + 5) {
+      /* first hexagon of even rows */
+      margin-left: 12.5%; /* = width of .hex / 2  to indent even rows */
+    }
+  }
+  
+  @media (max-width: 900px) and (min-width: 601px) {
+    /* <- 3-2  hexagons per row */
+    .hex-grid {
+      padding-bottom: 7.4%;
+      font-size: 14px;
+    }
+    .hex {
+      width: 33.333%; /* = 100 / 3 */
+    }
+    .hex:nth-child(5n + 4) {
+      /* first hexagon of even rows */
+      margin-left: 16.666%; /* = width of .hex / 2  to indent even rows */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    /* <- 2-1  hexagons per row */
+    .hex-grid {
+      padding-bottom: 11.2%;
+      font-size: 12px;
+    }
+    .hex {
+      width: 50%; /* = 100 / 3 */
+    }
+    .hex:nth-child(3n + 3) {
+      /* first hexagon of even rows */
+      margin-left: 25%; /* = width of .hex / 2  to indent even rows */
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .hex-grid {
+      font-size: 8px;
+    }
+  }
+  
