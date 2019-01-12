@@ -1,0 +1,26 @@
+<div *ngIf="(auth.user | async); then authenticated; else guest">
+  <!-- to be replace by ng-template -->
+</div>
+
+<ng-template #guest>
+  <p>Olá, visitante!</p>
+  <div class="login-buttons">
+    <button class="btn-social btn-google" (click)="auth.googleLogin()">
+      <i class="fab fa-google"></i> Entrar
+    </button>
+    <button class="btn-social btn-twitter" (click)="auth.twitterLogin()">
+      <i class="fab fa-twitter"></i> Entrar
+    </button>
+    <!-- <button class="login-email" (click)="auth.emailLogin()">
+        Conectar com email/senha
+    </button> -->
+  </div>
+</ng-template>
+
+<ng-template #authenticated>
+  <div *ngIf="(auth.user | async) as user" class="user-profile">
+      <img [src]="user.picture" alt="Foto do usuário {{ user.name }}" />
+    <p>{{user.name}}</p>
+    <button (click)="auth.signOut()">Sair</button>
+  </div>
+</ng-template>

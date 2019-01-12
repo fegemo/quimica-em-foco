@@ -9,3 +9,93 @@ app-root {
   min-width: 100%;
   min-height: 100vh;
 }
+
+body {
+  font-family: Neucha, sans-serif;
+}
+
+h1 {
+  font-family: Audiowide, fantasy;
+}
+
+button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: #fff;
+  border-color: #dbdbdb;
+  border-width: 1px;
+  color: #363636;
+  cursor: pointer;
+  justify-content: center;
+  padding-bottom: calc(0.375em - 1px);
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  padding-top: calc(0.375em - 1px);
+  text-align: center;
+  white-space: nowrap;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: none;
+  display: inline-flex;
+  font-size: 1rem;
+  height: 2.25em;
+  justify-content: flex-start;
+  line-height: 1.5;
+  padding-bottom: calc(0.375em - 1px);
+  padding-left: calc(0.625em - 1px);
+  padding-right: calc(0.625em - 1px);
+  padding-top: calc(0.375em - 1px);
+  position: relative;
+  vertical-align: top;
+}
+
+button strong {
+  color: inherit;
+}
+
+button .icon,
+button .icon.is-large,
+button .icon.is-medium,
+button .icon.is-small {
+  height: 1.5em;
+  width: 1.5em;
+}
+
+button .icon:first-child:not(:last-child) {
+  margin-left: calc(-0.375em - 1px);
+  margin-right: 0.1875em;
+}
+
+button .icon:last-child:not(:first-child) {
+  margin-left: 0.1875em;
+  margin-right: calc(-0.375em - 1px);
+}
+
+button .icon:first-child:last-child {
+  margin-left: calc(-0.375em - 1px);
+  margin-right: calc(-0.375em - 1px);
+}
+
+button.is-hovered,
+button:hover {
+  border-color: #b5b5b5;
+  color: #363636;
+}
+
+button.is-focused,
+button:focus {
+  border-color: #3273dc;
+  color: #363636;
+}
+
+button.is-focused:not(:active),
+button:focus:not(:active) {
+  box-shadow: 0 0 0 0.125em rgba(50, 115, 220, 0.25);
+}
+
+button.is-active,
+button:active {
+  border-color: #4a4a4a;
+  color: #363636;
+}

@@ -10,13 +10,16 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { PageThumbComponent } from './page-thumb/page-thumb.component';
+import { CoreModule } from './core/core.module';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageHeaderComponent,
     PageThumbComponent,
-    ...viewComponents
+    ...viewComponents,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { PageThumbComponent } from './page-thumb/page-thumb.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

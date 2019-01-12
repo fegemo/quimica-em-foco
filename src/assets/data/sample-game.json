@@ -1,0 +1,49 @@
+{
+  "has-started": true,
+  "has-finished": false,
+  "players": [
+    {
+      "ref": "Fl",
+      "score": 0
+    },
+    {
+      "ref": "Ma",
+      "score": 9
+    }
+  ],
+  "cards": [
+    {
+      "ref": "a1",
+      "tips": [1, 7]
+    },
+    {
+      "ref": "b2",
+      "tips": [2]
+    },
+    {
+      "ref": "c3",
+      "tips": []
+    }
+  ],
+  "current-player": 0,
+  "current-card": 1,
+  "rounds": [
+    {
+      "player-ref": "Fl",
+      "card": 0,
+      "tip": 1,
+      "attempt": null
+    },
+    {
+      "player-ref": "Ma",
+      "card": 0,
+      "tip": 7,
+      "attempt": "Mercúrio"
+    },
+    {
+      "player-ref": "Fl",
+      "card": 1,
+      "tip": 2
+    }
+  ]
+}

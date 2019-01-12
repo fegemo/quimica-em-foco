@@ -1,0 +1,61 @@
+{
+  "has-started": true,
+  "has-finished": true,
+  "players": [
+    {
+      "ref": "Fl",
+      "score": 10
+    },
+    {
+      "ref": "Ma",
+      "score": 18
+    }
+  ],
+  "cards": [
+    {
+      "ref": "a1",
+      "tips": [1, 7]
+    },
+    {
+      "ref": "b2",
+      "tips": [2, 4]
+    },
+    {
+      "ref": "c3",
+      "tips": [0]
+    }
+  ],
+  "current-player": 0,
+  "current-card": 1,
+  "rounds": [
+    {
+      "player-ref": "Fl",
+      "card": 0,
+      "tip": 1,
+      "attempt": null
+    },
+    {
+      "player-ref": "Ma",
+      "card": 0,
+      "tip": 7,
+      "attempt": "Mercúrio"
+    },
+    {
+      "player-ref": "Fl",
+      "card": 1,
+      "tip": 2
+    },
+    {
+      "player-ref": "Ma",
+      "card": 1,
+      "tip": 4,
+      "attempt": "Cloreto de Sódio"
+    },
+    {
+      "player-ref": "Fl",
+      "card": 2,
+      "tip": 0,
+      "attempt": "Oxigênio"
+    }
+  ]
+}
