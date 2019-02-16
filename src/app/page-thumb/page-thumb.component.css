@@ -43,6 +43,7 @@
 .hex-title,
 .hex-description {
   width: 100%;
+  height: 100%;
   padding: 5%;
   box-sizing: border-box;
   font-weight: 300;
@@ -50,10 +51,12 @@
 }
 
 .hex-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #f5ce95;
   text-transform: capitalize;
   text-align: center;
-  bottom: 50%;
   padding-top: 50%;
   font-size: 1.5em;
   z-index: 1;

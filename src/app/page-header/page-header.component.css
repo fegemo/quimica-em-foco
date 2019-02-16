@@ -4,9 +4,20 @@
   justify-content: center;
   flex-direction: column;
   background-color: #97abbd;
+  background-image: url(../../assets/images/blurred-mountains.jpg);
   color: #0c1e2d;
   box-shadow: 3px 0px 3px #0004;
   padding: 1em;
+  animation: bg-horizontal-scrolling 80s ease-in-out 0s infinite alternate-reverse;
+}
+
+@keyframes bg-horizontal-scrolling {
+  from {
+    background-position-x: 0%;
+  }
+  to {
+    background-position-x: 100%;
+  }
 }
 
 @media (max-width: 640px) {
