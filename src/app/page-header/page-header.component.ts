@@ -8,12 +8,13 @@ import { filter } from "rxjs/operators";
   styleUrls: ["./page-header.component.css"]
 })
 export class PageHeaderComponent implements OnInit {
-  notInHome = false;
+  inHome = true;
+  
   constructor(private router: Router, private activeRoute: ActivatedRoute) {
     this.router.events
       .pipe(filter(event => event instanceof NavigationStart))
       .subscribe((event: NavigationStart) => {
-        this.notInHome = event.url.length > 0 && event.url !== "/";
+        this.inHome = !(event.url.length > 0 && event.url !== "/");
       });
   }
 

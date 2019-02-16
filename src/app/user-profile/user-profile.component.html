@@ -1,5 +1,6 @@
 <div *ngIf="(auth.user | async); then authenticated; else guest">
-  <!-- to be replace by ng-template -->
+  <!-- to be replaced by ng-template -->
+
 </div>
 
 <ng-template #guest>
@@ -19,7 +20,7 @@
 
 <ng-template #authenticated>
   <div *ngIf="(auth.user | async) as user" class="user-profile">
-      <img [src]="user.picture" alt="Foto do usuário {{ user.name }}" />
+      <img [src]="user.picture" alt="Foto do usuário {{ user.name }}">
     <p>{{user.name}}</p>
     <button (click)="auth.signOut()">Sair</button>
   </div>

@@ -1,9 +1,11 @@
 <header>
   <h1>Química em Foco</h1>
   <p>Aprendendo Química de forma dinâmica e interativa</p>
-  <app-user-profile></app-user-profile>
+  <div *ngIf="inHome">
+    <app-user-profile></app-user-profile>
+  </div>
 </header>
-<div *ngIf="notInHome">
+<div *ngIf="!inHome">
   <app-page-list></app-page-list>
   <button (click)="navigateHome()">Voltar</button>
 </div>

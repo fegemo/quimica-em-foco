@@ -1,14 +1,18 @@
 import { Injectable } from "@angular/core";
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth } from "@angular/fire/auth";
 import {
   AngularFireStorageModule,
   AngularFireStorageReference
 } from "@angular/fire/storage";
 import { Observable, of } from "rxjs";
-import { switchMap } from "rxjs/operators";
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Router } from '@angular/router';
-import { auth } from 'firebase/app';
+import { switchMap, startWith, tap } from "rxjs/operators";
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+  AngularFirestoreDocument
+} from "@angular/fire/firestore";
+import { Router } from "@angular/router";
+import { auth } from "firebase/app";
 
 interface User {
   uid: string;
@@ -22,19 +26,24 @@ interface User {
   providedIn: "root"
 })
 export class AuthService {
- 
   user: Observable<User>;
 
-  constructor(private afAuth: AngularFireAuth,
+  constructor(
+    private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
-    private router: Router) {
-      this.user = this.afAuth.authState.pipe(switchMap(user => {
+    private router: Router
+  ) {
+    this.user = this.afAuth.authState.pipe(
+      switchMap(user => {
         if (user) {
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
           return of(null);
         }
-      }));
+      }),
+      tap(user => localStorage.setItem("user", JSON.stringify(user))),
+      startWith(JSON.parse(localStorage.getItem("user")))
+    );
   }
 
   googleLogin() {
@@ -48,28 +57,28 @@ export class AuthService {
   }
 
   oAuthLogin(provider) {
-    return this.afAuth.auth.signInWithPopup(provider)
-      .then(credential => {
-        this.updateUserData(credential.user);
-      });
+    return this.afAuth.auth.signInWithPopup(provider).then(credential => {
+      this.updateUserData(credential.user);
+    });
   }
 
   updateUserData(user) {
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc<User>(`users/${user.uid}`);
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc<User>(
+      `users/${user.uid}`
+    );
 
     const data: User = {
       uid: user.uid,
       email: user.email,
       name: user.displayName,
       picture: user.photoURL,
-      color: 'goldenrod'
+      color: "goldenrod"
     };
 
-    return userRef.set(data)
-      .catch(alert);
+    return userRef.set(data).catch(alert);
   }
 
   signOut() {
-    this.afAuth.auth.signOut();
+    this.afAuth.auth.signOut().then(() => localStorage.removeItem("user"));
   }
 }
