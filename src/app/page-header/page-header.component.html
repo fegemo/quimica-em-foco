@@ -5,7 +5,7 @@
     <app-user-profile></app-user-profile>
   </div>
 </header>
-<div *ngIf="!inHome">
-  <app-page-list></app-page-list>
-  <button (click)="navigateHome()">Voltar</button>
+<div id="header-page-list">
+  <app-page-list class="smallish"></app-page-list>
+  <button (click)="navigateHome()" class="btn btn-link push-right back">Voltar</button>
 </div>

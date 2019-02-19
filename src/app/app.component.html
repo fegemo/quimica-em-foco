@@ -1,6 +1,6 @@
-<app-page-header></app-page-header>
+<app-page-header [@menuAnimation]="prepareRoute(outlet)" (@menuAnimation.done)="onAnimationEvent($event)" [class.shown]="headerMenuShown"></app-page-header>
 
-<main>
-  <router-outlet></router-outlet>
+<main [@routeAnimations]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
 </main>
 

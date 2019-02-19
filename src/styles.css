@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --highlight-color: #3273dc;
+}
+
 body {
   margin: 0;
 }
@@ -98,4 +102,22 @@ button.is-active,
 button:active {
   border-color: #4a4a4a;
   color: #363636;
+}
+
+button.btn.btn-link {
+  background: transparent;
+  border: none;
+  color: var(--highlight-color);
+}
+
+button.btn.btn-link:hover {
+  text-decoration: underline;
+}
+
+.push-right {
+  float: right;
+}
+
+.push-left {
+  float: left;
 }
